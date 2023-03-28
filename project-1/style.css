@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+/* 
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Playfair Display', serif; 
+*/
+
+*{position: relative; padding: 0; margin: 0; text-transform: uppercase;}
+body{
+    font-family: 'Noto Sans KR', sans-serif; 
+    overflow-x: hidden;
+}
+li,ol,ul{list-style: none;}
+a{color:inherit; text-decoration: none;}
+img{display: block;}
+
+
+.cont img{width:100%;}
+h1,h2,h3,h4,h5,h6{text-transform: uppercase;}
+.text1{
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif; 
+}
+
+
+/* 햄버거버튼 */
+.ham-btn{
+    background-color: black;
+    width:60px; 
+    height:60px;
+    position: fixed;
+    top:0;left:0;
+    z-index: 500;
+}
+.ham-btn .bar{
+    position: absolute;
+    top:calc(50% - 1px);
+    left:calc(50% - 12px);
+    width:24px;height:2px;
+    background-color: white;
+    transition: 0.5s;
+}
+.ham-btn .bar1{transform: translate(0,-8px);}
+.ham-btn .bar2{}
+.ham-btn .bar3{transform: translate(0,8px);}
+
+.indicate{
+    z-index: 2;/*-1로변경할것*/
+    position: fixed;top:0;left:0;
+    text-transform: uppercase;
+}
+.indicate .indi-group{
+    display: flex;justify-content: flex-end;gap:20px;
+}
+.indicate .line{
+    transition: 0.5s;
+    position: absolute;top:50%;left:0;
+    width:100px;height:10px;background-color:rgb(253, 235, 177);z-index: -1;
+}
+.indi_num{
+    z-index: 1;/*-1로변경할것*/
+    position: fixed;top:0;left:0;
+}
+/* 메인페이지 */
+.main{}
+
+
+.title .text-box1{}
+.title .text-box2{margin-top: 100px;
+    display: flex; gap:20px;
+    font-size: 14px;}
+.title .text-box2 .btn{
+    border-bottom: 1px solid white; cursor: pointer;
+    display: none;
+}
+body.detail .title .text-box2 .btn{display: block;}
+
+.text1{font-size: 80px;font-weight: 700;letter-spacing: 10px;}
+.text1 span{transition:1s}
+.text1 span:nth-child(2n-1){top:-30px; opacity:0}
+.text1 span:nth-child(2n){top:30px; opacity:0}
+.item.active .text1 span{top:0; opacity:1}
+.item.active .text1 span:nth-child(1){transition: 0.4s;}
+.item.active .text1 span:nth-child(2){transition: 0.5s;}
+.item.active .text1 span:nth-child(3){transition: 0.6s;}
+.item.active .text1 span:nth-child(4){transition: 0.7s;}
+.item.active .text1 span:nth-child(5){transition: 0.8s;}
+.item.active .text1 span:nth-child(6){transition: 1.9s;}
+.item.active .text1 span:nth-child(7){transition: 1.0s;}
+.item.active .text1 span:nth-child(8){transition: 1.05s;}
+.item.active .text1 span:nth-child(9){transition: 1.1;}
+.item.active .text1 span:nth-child(10){transition: 1.15s;}
+
+.item1 .bg{background-image: url(img-20230320/musium.png);}
+.item2 .bg{background-image: url(img-20230320/woori.png);}
+.item3 .bg{background-image: url(img-20230320/lefer.png);}
+.item4 .bg{background-image: url(img-20230320/hermes.png);}
+.item5 .bg{background-image: url(img-20230320/sorosi.png);}
+.item .bg{background-size: cover;}
+
+/* 이부분 */
+.item{
+    position: absolute;
+    top:0;left:0;/*제이쿼리에서 수정*/
+    width:1000px; height:600px;
+    overflow: hidden;
+    
+}
+.bg{
+    position: absolute;
+    width:100vw; height:100vh;
+    top:50%;left:50%;transform: translate(-50%,-50%);
+    transition: 0.5s;
+}
+.bg::before{
+    content: '';display: block;
+    position: absolute;top:0;left:0;
+    width:100%; height:100%;
+    background-color: rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+body.detail .bg{}
+body.detail .bg::before{background-color: rgba(0,0,0,0.1);}
+
+.title{width:100vw; height:100vh;
+    top:50%;left:50%;transform: translate(-50%,-50%);
+    color:white;
+    display: flex;align-items: center;justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.item.active{z-index:100}
+
+/* 상세페이지에서 햄버튼 */
+body.detail .ham-btn{}
+body.detail .ham-btn .bar{
+    transform-origin: left center;
+}
+body.detail .ham-btn .bar1{
+    transform: translate(0,0) rotate(-45deg) scaleX(0.5);}
+body.detail .ham-btn .bar3{
+    transform: translate(0,0) rotate(45deg) scaleX(0.5);
+}
+
+body.detail{} 
+body.detail .item{overflow-y: scroll;} 
+
+
+/* 전체포폴메뉴 한번에보이게.사이트맵에서의 햄버튼 */
+body.sitemap .ham-btn{}
+body.sitemap .ham-btn .bar{transform-origin: center center;}
+body.sitemap .ham-btn .bar1{
+    transform: translate(0,0) rotate(-45deg) scaleX(1);}
+body.sitemap .ham-btn .bar2{transform:scaleX(0);}
+body.sitemap .ham-btn .bar3{
+    transform: translate(0,0) rotate(45deg) scaleX(1);
+}
+
+
+@media(max-width:800px){
+    .indicate{display: none;}
+}
